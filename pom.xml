@@ -118,11 +118,10 @@
                     <execution>
                         <configuration>
                             <packages>
-                                <!--                                <package>scipy</package> &lt;!&ndash; KO &ndash;&gt;-->
-                                <!--                                <package>pandas</package> &lt;!&ndash; KO &ndash;&gt;-->
-                                <!--                                <package>numpy</package>-->
+                                <package>scipy</package> <!-- KO -->
+                                <package>pandas</package> <!-- KO -->
+                                <package>numpy</package> <!-- KO -->
                                 <package>requests</package>
-                                <package>termcolor</package>
                             </packages>
                             <pythonHome>
                                 <includes/>
