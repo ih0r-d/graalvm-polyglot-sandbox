@@ -4,8 +4,8 @@ import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.HostAccess;
 import org.graalvm.polyglot.PolyglotAccess;
 import org.graalvm.polyglot.io.IOAccess;
-import org.graalvm.python.embedding.utils.GraalPyResources;
-import org.graalvm.python.embedding.utils.VirtualFileSystem;
+import org.graalvm.python.embedding.GraalPyResources;
+import org.graalvm.python.embedding.VirtualFileSystem;
 
 import java.nio.file.Path;
 

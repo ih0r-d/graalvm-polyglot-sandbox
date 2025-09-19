@@ -1,0 +1,34 @@
+version: "3"
+
+vars:
+  MAVEN_OPTS: "--enable-native-access=ALL-UNNAMED"
+
+tasks:
+  clean:
+    desc: Clean target and python resources
+    cmds:
+      - rm -rf python-resources
+      - MAVEN_OPTS="{{.MAVEN_OPTS}}" ./mvnw clean 2>&1 | grep -v "^WARNING:"
+
+  build:
+    desc: Build project without warnings
+    cmds:
+      - rm -rf python-resources
+      - MAVEN_OPTS="{{.MAVEN_OPTS}}" ./mvnw clean package 2>&1 | grep -v "^WARNING:"
+
+  test:
+    desc: Run tests
+    cmds:
+      - MAVEN_OPTS="{{.MAVEN_OPTS}}" ./mvnw test 2>&1 | grep -v "^WARNING:"
+
+  checkstyle:
+    desc: Run Checkstyle verification
+    cmds:
+      - MAVEN_OPTS="{{.MAVEN_OPTS}}" ./mvnw checkstyle:check 2>&1 | grep -v "^WARNING:"
+
+  default:
+    desc: Default task (clean + build + test)
+    cmds:
+      - task: clean
+      - task: build
+      - task: test

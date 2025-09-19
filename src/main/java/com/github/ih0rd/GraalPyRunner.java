@@ -6,21 +6,23 @@ import com.github.ih0rd.helpers.PythonExecutor;
 
 import java.util.List;
 
+import static java.lang.IO.println;
+
 
 public class GraalPyRunner {
 
 
-    public static void main(String[] args) {
+    void main() {
         var pythonExecutor = new PythonExecutor();
 
         var helloResult = pythonExecutor.evaluate("hello", Hello.class, "GraalDemo");
-        System.out.println("helloResult = " + helloResult);
+        println("helloResult = " + helloResult);
 
         var numResult = pythonExecutor.evaluate("num", Hello.class);
-        System.out.println("numResult = " + numResult);
+        println("numResult = " + numResult);
 
         var sumResult = pythonExecutor.evaluate("sum", Hello.class, 3,7);
-        System.out.println("sumResult = " + sumResult);
+        println("sumResult = " + sumResult);
 
         var aInput = List.of(List.of(1, 2), List.of(4, 0), List.of(0, 4));
         var bInput = List.of(8, 16, 12);
@@ -31,7 +33,7 @@ public class GraalPyRunner {
         var simplexArgs = new Object[]{aInput, bInput, cInput, prob, null, enableMsg, latex};
 
         var runSimplexResult = pythonExecutor.evaluate("run_simplex", OptimizeService.class, simplexArgs);
-        System.out.println("runSimplexResult = " + runSimplexResult);
+        println("runSimplexResult = " + runSimplexResult);
 
         pythonExecutor.closeContext();
 
